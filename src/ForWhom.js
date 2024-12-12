@@ -9,7 +9,7 @@ const ForWhom = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-r from-blue-800 to-blue-600 py-20 text-white">
+        <div id="for-whom" className="bg-gradient-to-r from-blue-800 to-blue-600 py-20 text-white">
             <div className="container mx-auto py-6">
                 <h2 className="text-4xl font-semibold text-center mb-8">Для кого этот портал?</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

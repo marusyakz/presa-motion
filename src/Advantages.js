@@ -10,7 +10,7 @@ const Advantages = () => {
   ];
 
   return (
-    <div className='bg-black relative h-[400px] py-20 z-50'>
+    <div id="advantages" className='bg-black relative h-[400px] py-20 z-50'>
       {/* Фон с текстом INEED */}
       <div className='absolute -top-8 left-0 w-full h-full flex justify-center items-center'>
         <h1 className='text-[500px] font-bold text-white opacity-5'>

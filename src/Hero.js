@@ -1,13 +1,16 @@
+// components/Hero.js
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Импорт из framer-motion
-import InteractiveGlobe from './InteractiveGlobe'; // Импортируйте ваш компонент глобуса
+import { motion, AnimatePresence } from 'framer-motion';
+import InteractiveGlobe from './InteractiveGlobe';
 import ParticlesBackground from './ParticlesBackground';
+import Navbar from './Navbar'; // Импортируем компонент навигации
+import { Link } from 'react-scroll'; // Импортируем компонент Link из react-scroll
 
-const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
+
+const Hero = () => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        // Задержка, чтобы инициировать анимацию только после загрузки компонента
         const timer = setTimeout(() => setLoaded(true), 500);
         return () => clearTimeout(timer);
     }, []);
@@ -16,14 +19,7 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
         <>
             <div className='bg-white/5 backdrop-blur-xl border-b border-white border-opacity-10 flex items-center justify-center absolute w-full left-0 top-0 bg-opacity-75 z-50'>
                 <div className='container mx-auto'>
-                    <div className='flex items-center justify-between'>
-                        <div className='text-gray-300 border-r border-white border-opacity-10 p-5 font-bold'>INEED </div>
-                        <div>
-                            <span className='text-gray-300 border-x border-white border-opacity-10 p-5'>Как это работает</span>
-                            <span className='text-gray-300 border-x border-white border-opacity-10 p-5'>Преимущества </span>
-                            <span className='text-gray-300 border-x border-white border-opacity-10 p-5'>Для кого этот портал </span>
-                        </div>
-                    </div>
+                    <Navbar /> {/* Добавляем компонент Navigation */}
                 </div>
             </div>
 
@@ -31,7 +27,6 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
                 {/* Контейнер для глобуса и частиц */}
                 <div className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden">
                     <InteractiveGlobe />
-                    {/* Контейнер для частиц */}
                     <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-20">
                         <ParticlesBackground />
                     </div>
@@ -40,7 +35,6 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
                 <AnimatePresence>
                     {loaded && (
                         <>
-                            {/* Горизонтальная линия */}
                             <motion.div
                                 className="bg-white w-full absolute left-0 bg-opacity-25"
                                 initial={{ opacity: 0, scaleX: 0 }}
@@ -50,7 +44,6 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
                                 style={{ height: '1px', top: '50%', transformOrigin: 'left center' }}
                             ></motion.div>
 
-                            {/* Контейнер с текстом */}
                             <motion.div
                                 className="relative w-full z-50"
                                 initial={{ opacity: 0, y: 50 }}
@@ -60,7 +53,6 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
                             >
                                 <div className="container mx-auto">
                                     <div className="border border-white bg-black/8 backdrop-blur-xl w-full p-10 flex flex-col items-center rounded-lg border-opacity-10">
-                                        {/* Плавное появление текста */}
                                         <motion.h1
                                             className="font-bold text-white text-[28px] py-5 uppercase typing-effect"
                                             initial={{ opacity: 0 }}
@@ -84,7 +76,13 @@ const Hero = ({ domain, setDomain, zone, setZone, checkDomain }) => {
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: 0.9, duration: 0.8 }}
                                         >
-                                            Подробнее
+                                            <Link
+                                                to="how-it-works"
+                                                smooth={true}
+                                                duration={500}
+                                                className="cursor-pointer"
+                                            >Подробнее
+                                            </Link>
                                         </motion.a>
                                     </div>
                                 </div>

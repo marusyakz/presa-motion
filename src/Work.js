@@ -3,7 +3,7 @@ import Triangle from './Triangle';
 
 const HowItWorks = () => {
     return (
-        <div className='bg-gradient-to-l from-blue-800 text-white  border to-blue-400 h-[400px] flex items-center'>
+        <div id='how-it-works' className='bg-gradient-to-l from-blue-800 text-white  border to-blue-400 h-[400px] flex items-center'>
             <div className='container mx-auto'>
                 <div className='items-center flex justify-between w-full'>
                     <div className='flex w-full items-start justify-start'><Triangle /></div>
